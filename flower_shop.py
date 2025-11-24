@@ -11,15 +11,14 @@ class shop:
     balance = default balance - costs
     productivity = {type of bouquets: quantity}
     '''
-    def __init__(self,target):
-        self.target = np.array(target)
+    def __init__(self):
         self.florists = []
         self.salary = 15.5 # only one florist hired by default
         self.max_working = 80
 
     def add_florist(self, name):
         '''add more florist'''
-        self.florists.append(name) 
+        self.florists.append(name)
         number = len(self.florists)
         self.number = number
         self.salary = 15.5 * number
@@ -33,12 +32,12 @@ class shop:
             self.number = number 
             self.salary = 15.5 * number *80
     
-    def operation(self):
+    def operation(self,target):
         '''simulate one-month's operation'''        
         selling_price = np.array([18.5,17.5,32.5]) # 1x3        
-        earning = np.dot(self.target,selling_price.reshape(3,1))       
+        earning = np.dot(target,selling_price.reshape(3,1))       
         self.income = earning
-        print(f'Get Income Calculation Done!\n Income is {self.income[0]}')
+        print(f'Calculating total income!\n Income is {self.income[0]}')
     
     def check(self,time_cons,expenditure):
         '''
@@ -62,18 +61,14 @@ class bouquet:
     import numpy as np
     def __init__(self, quantity,demand=[175,100,250]):        
         if any(q > d for q, d in zip(quantity, demand)):
-            print('warning: your target is greater than the market demand')
+            raise ValueError("Your target is greater than the market demand")
         else:
             print('target check finished!')
         print('-------------------')
         self.quantity = np.array(list(quantity))
 
-    def labour_consumption(self,time_cons):
-        if self.type in time_cons.keys():
-            self.labour_consump += time_cons[self.type] *self.quantity
-        else:
-            print('type errors')
-
+   
+            
     def bouquet_quan(self):
         '''
         This function calculate the minimun quantity of supplies and supplies fee
@@ -82,7 +77,7 @@ class bouquet:
         # setting
         price = np.array([1.6,1.2,0.95])
         making_time = np.array([1/3,1/2,3/4])
-        composition=np.array([[4,0,2],[2,1,3],[2,4,2]])
+        composition=np.array([[0,2,4],[1,3,2],[4,3,2]])
         total_time = np.dot(making_time,self.quantity)
         self.total_making_time = total_time
         quant = np.dot(self.quantity,composition) # 1x3 矩阵       
