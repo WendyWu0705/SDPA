@@ -1,43 +1,33 @@
 # import packages
 import flower_shop as fs
-import code_1 as fc
+import check_status as cs
+import shop as sh
 
 
 def one_run(balance):
-    # set and show a shop configuration
-    florist0 = fs.florist('Mike')
-    rent = 800
-    shop1 = fs.shop() # default running period is 6
-    shop1.add_florist(florist0)
-    print('Initial Florist is:')
-    print([florist_name.name for florist_name in shop1.florists])
-
+    print('Before the month starts, there are some owner actions for you to carry out.' \
+    ' First, review the number of staff, then decide how many bouquets to sell.')
+    
     # add/remove florist and calculate the number of florists
-    print('Do you want to add/remove florists?')
-    #florist1 = fs.florist('Jack')
-    florist2= fs.florist('John')
-    # 目前只能一个一个加，之后可以一个列表加
-    #shop1.add_florist(florist1)
-    shop1.add_florist(florist2)
-    shop1.rem_florists(florist2)
-    print('In this month we have listed florists working in our shop:')
-    print([florist_name.name for florist_name in shop1.florists])
-    print(f'The number of existing florists is {shop1.number}')
-    # calculate the salary expenditure
-    salary = shop1.salary
+    rent = 800
+    shop1 = sh.shop()
+    florist, salary= shop1.process_input_florist()
+    print('Current Staff:\n',[florist_name for florist_name in florist])
 
     # Automatically check if the target is technically allowed
     # making sure the target quantity is within the market demand range
     # labor_constraint_check
     # capacity check
 
-    bouquet1 = fc.Target(shop1.number)
+    bouquet1 = cs.Target(shop1.number) #bouquet1指生产/销售目标
     bouquet1 = bouquet1.process()
     # according to the selling target, calculate the fees, quant and total_making_time
 
-    bouquet1.bouquet_quan()
 
-
+    # compute cost and fees
+    bouquet1.operation() 
+    vendor = fs.vendor()
+    vendor_price = vendor.vendor_price
     fees = bouquet1.flower_fee # cash flow
     quant = bouquet1.quant # 1x3
     total_making_time = bouquet1.total_making_time
@@ -46,7 +36,7 @@ def one_run(balance):
     #print(f'required working hour is {total_making_time}h',end='\n')
 
 
-    bouquet1.repleinishment()
+    bouquet1.repleinishment(vendor_price)
     total_greenhouse_cost = bouquet1.greenhouse_cost
     total_replenish_cost = bouquet1.replenish_cost
     total_cost = total_greenhouse_cost + total_replenish_cost + salary + rent
@@ -65,5 +55,5 @@ def one_run(balance):
     print('-------------------')
     print('Complete Operation within one month!')
     print('balance is', balance)
-    return balance
+    return balance, shop1
 
