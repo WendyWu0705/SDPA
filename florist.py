@@ -1,6 +1,8 @@
 class florist:
-    def __init__(self):
-        self.florist = []
+    def __init__(self, florist_list=None):
+        if florist_list is None:
+            florist_list = []
+        self.florist = florist_list
 
     def add_florist(self,n):
         '''add more florist'''
