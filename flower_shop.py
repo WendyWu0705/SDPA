@@ -1,10 +1,6 @@
 # a shop has a balance, a production
 import numpy as np
 
-class florist:
-    def __init__(self,name):
-        self.name = name        
-
 class shop:
     '''
     period means the number of months to run the simulation
@@ -12,12 +8,14 @@ class shop:
     productivity = {type of bouquets: quantity}
     '''
     def __init__(self):
-        self.florists = florist
-        self.salary = 15.5 # only one florist hired by default
+        # This simplified shop class is only responsible for calculating income
+        # based on target bouquet quantities. Staff management is handled
+        # by the shop class in shop.py using the unified florist class.
+        self.salary = 15.5  # only one florist hired by default (legacy field)
         self.max_working = 80
 
     def operation(self,target):
-        '''simulate one-month's operation'''        
+        '''simulate one-month's operation'''
         selling_price = np.array([18.5,17.5,32.5]) # 1x3        
         earning = np.dot(target,selling_price.reshape(3,1))       
         self.income = earning

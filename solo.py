@@ -11,15 +11,19 @@ def one_run(balance,shop1):
     # add/remove florist and calculate the number of florists
     rent = 800
     shop1 = shop1
-    florist, salary= shop1.process_input_florist()
-    print('Current Staff:\n',[florist_name for florist_name in florist])
+    florist, salary = shop1.process_input_florist()
+    print('Current Staff:')
+    for emp in florist:
+        spec_str = f"Specialization: {['Fern-tastic', 'Be-Leaf in Yourself', 'You Rose to the Occasion'][emp['specialization']]}" if emp['specialization'] is not None else "No specialization"
+        salary_str = "Senior manager" if emp['salary_level'] == 'senior' else "Normal employee"
+        print(f"  - {emp['name']}: {spec_str}, {salary_str}")
 
     # Automatically check if the target is technically allowed
     # making sure the target quantity is within the market demand range
     # labor_constraint_check
     # capacity check
 
-    bouquet1 = cs.Target(shop1.number) # bouquet1 represents the production/sales target
+    bouquet1 = cs.Target(shop1.number, florist)  # bouquet1 represents the production/sales target
     bouquet1 = bouquet1.process()
     # according to the selling target, calculate the fees, quant and total_making_time
 
@@ -77,7 +81,11 @@ def one_run(balance,shop1):
     # Staff situation
     print('Staff situation at the end of the month:')
     print(f'Number of florists: {shop1.number}')
-    print('Florist names:', shop1.florist)
+    print('Florist details:')
+    for emp in shop1.florist:
+        spec_str = f"Specialization: {['Fern-tastic', 'Be-Leaf in Yourself', 'You Rose to the Occasion'][emp['specialization']]}" if emp['specialization'] is not None else "No specialization"
+        salary_str = "Senior manager" if emp['salary_level'] == 'senior' else "Normal employee"
+        print(f"  - {emp['name']}: {spec_str}, {salary_str}")
 
     print('-------------------')
     print('Complete operation within one month!')
