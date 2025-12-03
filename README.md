@@ -253,8 +253,11 @@ Potential improvements:
 ## Author
 
 Wendy Wu 
+
 Email: eu24054@bristol.ac.uk
-Student number:  
+
+Student number:  2628690
+
 University of Bristol - SDPA Coursework
 
 ## License
