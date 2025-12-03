@@ -44,7 +44,6 @@ This project is a comprehensive flower shop management simulator that allows pla
 ├── check_status.py      # Target class - order validation and checks
 ├── flower_shop.py       # Bouquet, vendor classes - core business logic
 ├── solo.py              # one_run() function - monthly simulation
-├── part2.ipynb          # Part 2: Data Analytics (Jupyter notebook)
 └── README.md            # This file
 ```
 ## How to Run
@@ -235,15 +234,6 @@ The system includes comprehensive error handling:
 - **Market Demand**: Prevents over-ordering
 - **Employee Limits**: Enforces 1-4 employee constraint
 - **Duplicate Names**: Prevents duplicate employee names
-
-## Part 2: Data Analytics
-
-The project also includes a data analytics component (`part2.ipynb`) that:
-- Crawls real-world datasets
-- Performs data cleaning and preparation
-- Conducts exploratory data analysis
-- Answers complex questions about the data
-- Provides insights and conclusions
 
 ## Future Enhancements
 
