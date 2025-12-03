@@ -33,6 +33,7 @@ This project is a comprehensive flower shop management simulator that allows pla
 - Senior managers provide a **50% price increase** on all bouquets
 - Strategic decision: higher salary cost vs. increased revenue
 
+
 ## Project Structure
 
 ```
@@ -46,6 +47,40 @@ This project is a comprehensive flower shop management simulator that allows pla
 ├── part2.ipynb          # Part 2: Data Analytics (Jupyter notebook)
 └── README.md            # This file
 ```
+## How to Run
+
+### Prerequisites
+- Python 3.x
+- NumPy library
+
+### Installation
+```bash
+pip install numpy
+```
+
+### Running the Simulation
+```bash
+python main.py
+```
+
+### Game Flow
+1. **Initial Setup**: Start with £7,500 balance
+2. **Monthly Cycle**:
+   - Manage staff (add/remove, set specialization and salary level)
+   - Set bouquet production targets
+   - System validates:
+     - Market demand limits
+     - Greenhouse capacity
+     - Labor capacity (considering specialization)
+   - Choose vendors for restocking
+   - View monthly summary:
+     - Income and expenses
+     - Cash flow
+     - Remaining inventory
+     - Staff status
+3. **Continue**: Repeat for desired number of months
+4. **Game Over**: If balance reaches £0 or below
+
 
 ## Class Design
 
@@ -144,39 +179,6 @@ Vendor management:
 - Daisies: £1.2/bunch
 - Greenery: £1.8/bunch
 
-## How to Run
-
-### Prerequisites
-- Python 3.x
-- NumPy library
-
-### Installation
-```bash
-pip install numpy
-```
-
-### Running the Simulation
-```bash
-python main.py
-```
-
-### Game Flow
-1. **Initial Setup**: Start with £7,500 balance
-2. **Monthly Cycle**:
-   - Manage staff (add/remove, set specialization and salary level)
-   - Set bouquet production targets
-   - System validates:
-     - Market demand limits
-     - Greenhouse capacity
-     - Labor capacity (considering specialization)
-   - Choose vendors for restocking
-   - View monthly summary:
-     - Income and expenses
-     - Cash flow
-     - Remaining inventory
-     - Staff status
-3. **Continue**: Repeat for desired number of months
-4. **Game Over**: If balance reaches £0 or below
 
 ## Example Gameplay
 
@@ -256,15 +258,13 @@ Potential improvements:
 
 ## Author
 
+Wendy Wu 
+Email: eu24054@bristol.ac.uk
+Student number:  
 University of Bristol - SDPA Coursework
 
 ## License
 
 This project is part of academic coursework.
 
-## Acknowledgments
-
-- Built for Software Development: Programming and Algorithms (SDPA) course
-- Implements object-oriented programming principles
-- Demonstrates software engineering best practices
 
