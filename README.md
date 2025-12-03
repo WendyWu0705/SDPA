@@ -66,17 +66,21 @@ python main.py
 1. **Initial Setup**: Start with £7,500 balance
 2. **Monthly Cycle**:
    - Manage staff (add/remove, set specialization and salary level)
+   ![screenshot](running_screenshot1.png)
    - Set bouquet production targets
    - System validates:
      - Market demand limits
      - Greenhouse capacity
      - Labor capacity (considering specialization)
+   ![screenshot](running_screenshot2.png)
    - Choose vendors for restocking
+   ![screenshot](running_screenshot3.png)
    - View monthly summary:
      - Income and expenses
      - Cash flow
      - Remaining inventory
      - Staff status
+     ![screenshot](running_screenshot4.png)
 3. **Continue**: Repeat for desired number of months
 4. **Game Over**: If balance reaches £0 or below
 
